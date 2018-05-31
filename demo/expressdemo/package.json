@@ -1,0 +1,21 @@
+{
+  "name": "expressdemo",
+  "version": "1.0.0",
+  "description": "a nodejs program",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "shotq",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
