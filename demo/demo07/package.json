@@ -1,0 +1,22 @@
+{
+  "name": "demo07",
+  "version": "1.0.0",
+  "description": "hot start",
+  "main": "index.js",
+  "scripts": {
+    "test": "hotnode index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "hot",
+    "start"
+  ],
+  "author": "shotq",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

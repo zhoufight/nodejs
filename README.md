@@ -241,3 +241,29 @@ function(req,res){
 
 6）代码详见`demo/demo06`
 
+## 熱启动
+
+在上面的例子中，每一个demo的编写过程中，如果改动了某一个文件，通常都要对整一个项目进行重新的启动，启动的步骤总是非常复制，所以热启动就是一个非常重要的内容。
+
+1)hotnode模块的热启动
+1.1安装hotnode模块
+`npm install -g hotnode`  --这里是全局安装hotnode模块
+
+1.2启动项目
+`hotnode index.js` 通过hotnode命令启动项目，然后每一次修改文件，就会重新自启动项目。
+
+2）node-dev模块
+2.1安装
+`npm install -g node-dev`
+
+2.2启动
+`node-dev index.js`
+
+3)webpack打包启动
+
+待补充...
+
+
+
+
+
