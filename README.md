@@ -139,5 +139,50 @@ app.use('/get',router);
 
 在浏览器分别输入`localhost:端口号/post`和`localhost:端口号/get`获取内容
 
-3)更加清晰的做法，独立出来controller
-待续
+3)更加清晰的做法，独立出来controller（入口文件为demo03中的demo.js）
+
+3.1将post方法、get方法中的回调方法抽离出来成为controller
+
+3.2将router单独为一个router目录
+
+3.3然后在入口文件中汇总所有的router
+
+4)代码见`demo/demo03`和`demo/demo04`
+
+## nodejs模块
+
+在js中，模块化有很多种规范。而在nodejs中，则是通过require和exports进行模块化设计的。
+
+hello.js
+```
+exports.world = function(){
+	console.log('hello world!');
+}
+
+exports.everyone = function(){
+	console.log('hello everyone');
+}
+```
+
+index.js
+```
+var hello = require('hello.js');
+hello.world();
+hello.everyone();
+```
+
+如果只封装一个对象的模块：
+hello.js
+```
+module.exports = function(){
+	console.log('hello world');
+}
+```
+
+index.js
+```
+var hello = require('hello.js');
+var h = hello();
+```
+
+

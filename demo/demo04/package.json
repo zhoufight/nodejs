@@ -1,0 +1,21 @@
+{
+  "name": "demo04",
+  "version": "1.0.0",
+  "description": "router",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "router"
+  ],
+  "author": "shotq",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
