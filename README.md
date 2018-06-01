@@ -55,4 +55,89 @@ app.listen(8081);
 
 6)详情见`demo/expressdemo`
 
-## 
+## 日志输出
+
+对于一个项目来说，日志打印毫无疑问是很重要的，日志有助于以后在使用过程中遇到问题的排查和发现问题。在express中，提供了许多的日志打印中间件。
+
+### log4js
+
+1)构建一个简单的express项目，步骤如上文
+
+2)安装log4js模块
+`npm install -save log4js`
+然后在index.js中编写以下的代码
+```
+var express = require('express');
+var app = express();
+
+//一般log4js的使用
+var log4js = require('log4js');
+var logger = log4js.getLogger();
+logger.level = 'debug';
+
+app.get("/",function(req,res){
+	logger.debug('express log4js');
+	res.send('hello log4js');
+});
+
+app.listen('8083');
+```
+
+在浏览器输入`localhost:8083`即可看到控制台输出日志
+
+3)log4js的配置
+```
+var log4js = require('log4js');
+log4js.configure({
+	appenders:{
+		out:{type:'stdout'},
+		info:{type:'file',filename:'./log/log.log'},
+	},
+	categories:{
+		default:{
+			appenders:['out','info'],
+			level:'info'
+		}
+	}
+});
+```
+
+将日志打印输出到log/log.log目录下
+
+4)代码见`demo/demo02`
+
+## express路由
+通过配置express路由，可以向外提供接口或者定位到一个资源。
+
+1)一般的路由
+express提供了许多种路由得方法，最常用的是`get`和`post`分别对应着GET和POST方法。示例如下：
+```
+var express = require('express');
+var app = express();
+app.get('/',function(req,res){
+	res.send('hello router');
+});
+app.get('/post',function(req,res){
+	res.json({data:'jsondata'});
+});
+```
+
+然后在浏览器分别输入`localhost:端口号`和`localhost:端口号/post`获取内容
+
+2)使用Router中间件
+express提供了路由得中间件，可以将不同的路由分类别：
+```
+var express = require('express');
+var app = express();
+var router = express.Router();
+router.get('/',function(res,req){
+	res.send('hello router');
+});
+app.use('/post',router);
+app.use('/get',router);
+```
+
+在浏览器分别输入`localhost:端口号/post`和`localhost:端口号/get`获取内容
+
+3)更加清晰的做法，独立出来controller
+待续
