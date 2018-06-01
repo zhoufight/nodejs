@@ -1,0 +1,21 @@
+{
+  "name": "demo05",
+  "version": "1.0.0",
+  "description": "express static",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "static"
+  ],
+  "author": "shotq",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

@@ -186,3 +186,58 @@ var h = hello();
 ```
 
 
+## 静态资源
+
+在express中，通过static方法可以指定静态资源的目录，方便放置css、js、image等一些静态的资源。
+```
+var express = require('express');
+var path = require('path');
+var app = express();
+
+app.use(express.static(path.join(__dirname,'public')));
+
+app.listen(3000,()=>{
+	console.log('app is running at port 3000');
+});
+
+```
+
+代码见`demo/demo05`
+
+## 模板引擎
+
+模板引擎有好多，就好像java里面也都有很多，比如jsp、thymeleaf等等。在nodejs中，这一次介绍的是ejs模板引擎。
+
+1)安装express和ejs模块
+`npm install -save express ejs`
+
+2)在express中定义模板引擎
+
+方法一（文件后缀为ejs）
+
+```
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
+```
+
+方法二（文件后缀为html）
+
+```
+var ejs = require('ejs');
+app.engine('html',ejs.__express);
+app.set('view engine','html');
+```
+
+3)定义路由规则（参考express路由中介绍）
+
+4）渲染模板
+```
+function(req,res){
+	res.render('index',{name:'nodejs'});
+}
+```
+
+5）运行项目，并在浏览器中打开`localhost:3001`即可看到模板的内容
+
+6）代码详见`demo/demo06`
+

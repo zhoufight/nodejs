@@ -1,0 +1,22 @@
+{
+  "name": "demo06",
+  "version": "1.0.0",
+  "description": "views",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "views"
+  ],
+  "author": "shotq",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
