@@ -1,0 +1,22 @@
+{
+  "name": "demo08",
+  "version": "1.0.0",
+  "description": "mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "hotnode index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "mysql"
+  ],
+  "author": "shotq",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "mysql": "^2.15.0"
+  }
+}

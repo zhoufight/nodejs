@@ -263,7 +263,43 @@ function(req,res){
 
 待补充...
 
+4)代码见`demo/demo07`
 
+## nodejs与mysql
 
+业务总离不开与数据的交互，数据需要持久化就必须存储下来，所以与数据库的交互就变得非常重要。
+
+1)安装mysql模块
+`npm install -save mysql`
+
+2)连接方式
+连接mysql，可以分为普通连接和连接池连接。
+其中普通连接需要每次使用完之后对连接进行关闭，需要使用的时候重新新建一个连接，所以这一个过程非常耗费资源，在项目中这明显不是一个明智的选择。
+连接池连接是先初始化一定数量的连接，然后每一次使用都从连接池中取得连接，用完之后自动放回到连接池中，无需手动关闭。
+
+普通连接数据库见`demo/demo08/mysql.js`
+连接池连接数据库见`demo/demo08/conn.js`
+
+3)操作数据
+在nodejs中无论查询还是更新等操作，都是通过query()方法
+```
+conn.query('select * from t_user',function(err,res){
+	if(err) throw err;
+	console.log(res);
+});
+
+//参数化查询
+conn.query('select * from t_user where id = ?',['1'],function(err,res){
+	if(err) throw err;
+	console.log(res);
+});
+```
+
+查询出来的结果大概形式为：RowDataPacket {'':''}
+
+将这个结果转化为可用的数据`console.log(JSON.stringify(res))`
+
+4)事务
+通过async封装了一个mysql的事务事务，见`demo/demo08/connection.js`
 
 
