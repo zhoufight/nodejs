@@ -1,0 +1,23 @@
+{
+  "name": "demo10",
+  "version": "1.0.0",
+  "description": "params",
+  "main": "index.js",
+  "scripts": {
+    "test": "hotnode index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "params"
+  ],
+  "author": "shotq",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  }
+}

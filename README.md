@@ -302,4 +302,72 @@ conn.query('select * from t_user where id = ?',['1'],function(err,res){
 4)事务
 通过async封装了一个mysql的事务事务，见`demo/demo08/connection.js`
 
+## 参数解析
+
+express里面区分了get请求和post请求，而这两种请求获取请求参数又是不一样的。
+
+get请求-query
+```
+app.get('/get',function(req,res,next){
+	var query = req.query;
+	console.log(query);
+});
+
+```
+
+post请求-body-parser中间件
+```
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post('/post',function(req,res,next){
+	var body = req.body;
+	console.log(body);
+	res.send('hello');
+});
+```
+
+代码见`demo/demo09`
+
+## 使用html等编写桌面程序exe
+
+在使用微信小程序开发工具的时候，发现开发工具目录下有一个node.exe，然后解压开发工具的exe文件，发现居然是一个html和package.json文件，所以对于nodejs打包成exe程序的有些兴趣。
+简单的实验了一下，通过工具[nw.js](https://nwjs.io/)可以实现用前端的技术开发一个exe程序。
+1、下载nwjs工具，并解压
+
+2、新建一个index.html
+内容自己定义
+
+3、新建一个package.json,用以配置
+```
+{
+	"main":"index.html",
+	"name":"myapp",
+	"version":"0.0.1",
+	"window":{
+		"title": "myapp",
+	    "toolbar": true,
+	    "width": 823,
+	    "height": 600,
+	    "min_width": 800,
+	    "min_height": 600,
+	    "resizable": true,
+	    "show_in_taskbar": true,
+	    "frame":false
+	},
+	"webkit": {
+      "plugin": true,
+      "double_tap_to_zoom_enabled": true
+    }
+}
+
+```
+
+4、将index.html和package.json打包成后缀为`.nw`的压缩包--myapp.nw
+
+5、将打包后的nw文件和nwjs解压后目录中的nw.exe一起打包成一个新的exe文件即可
+
+除了桌面程序exe之外，其实还有很多工具，可以将前端的技术打包成安卓apk和ios中的程序。
 
